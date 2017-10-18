@@ -2,43 +2,38 @@
 
 {% block content %}
 
-
 <div class="page-header">
-             <center>   <h1>Welcome Back</h1> </center>
+    <center><h1>Welcome Back</h1></center>
 </div>
-
-<button class="tablink" onclick="Registration('login, 'signup')" id="defaultOpen">Signup</button>
-<button class="tablink" onclick="window.location.href='/login'">Login</button>
-<div class="form">
+<div class="sign__up">
 
 
-      <div class="tab-content">
-        <div id="signup">
-<form method="post">
-  {% csrf_token %}
-  {% for field in form %}
-    <center>
-  <table>
-      <tr>
-      <td>
+    <button class="tablink" onclick="Registration('login, 'signup')" id="defaultOpen">Signup</button>
+    <button class="tablink" onclick="window.location.href='/login'">Login</button>
+    <div class="form">
 
-    {{ field.label_tag }}
-    {{ field }}
-    {% for error in field.errors %}
-  <p style="color: red">{{ error }}</p>
-  {% endfor %}
-      </td>
-  </tr>
-  </table>
-        </center>
-  {% endfor %}
-    <div>
-      <button class="btn-submit" type="submit">Submit</button>
-</div>
-</form>
-{% endblock %}
+        <div class="tab-content">
+            <div id="signup">
+                <form method="post" class="sign__up__form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="row sign__up__form__row">
+                        <div class="col-md-6">{{ field.label_tag }}</div>
+                        <div class="col-md-6">{{ field }}</div>
+                        {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <div>
+                        <button class="btn-submit" type="submit">Submit</button>
+                    </div>
+                </form>
+                {% endblock %}
 
 
+            </div>
         </div>
-      </div>
+    </div>
+
 </div>

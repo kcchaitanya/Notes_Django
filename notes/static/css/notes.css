@@ -81,3 +81,17 @@ text-align: center;
 
 
 }
+
+.sign__up{
+    text-align:center;
+}
+
+.sign__up__form{
+    width:500px;
+    margin: 10px auto;
+
+}
+
+.sign__up__form__row{
+    margin-top:10px;
+}
