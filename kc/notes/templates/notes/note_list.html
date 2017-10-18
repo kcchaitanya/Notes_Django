@@ -1,0 +1,43 @@
+{% extends 'notes/base.html' %}
+{% load staticfiles %}
+
+<html>
+
+
+<body>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="page-header">
+
+            <a href="{% url 'note_new' %}" style="float: left;" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-plus" ></span> Create New Note
+        </a>
+
+        <a href="{% url 'logout' %}" style="float: right;" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out" ></span> Log out
+        </a>
+     <center><h1><a  href="/note/list">Notes List</a></h1></center>
+
+
+    </div>
+</div>
+    {% for note in notes %}
+
+
+    <div class="note">
+
+
+        <h1><a href="{% url 'note_detail' pk=note.pk %}">{{ note.title }}</a></h1>
+        <p>{{ note.text|linebreaksbr }}</p>
+    </div>
+
+    {% endfor %}
+    {% endblock %}
+
+
+
+</body>
+</html>
